@@ -66,6 +66,60 @@ body {
     max-width: 540px;
   }
 }
+
+.password-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.password-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+.password-modal-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.password-modal-close:hover {
+  color: black;
+}
+
+.password-input {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+
+.password-btn {
+  background-color: #ed4d82;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.password-btn:hover {
+  background-color: #d43d72;
+}
 </style>
   </head>
   <body>
@@ -82,52 +136,123 @@ body {
       <!-- Links section 1. Replace the # inside of the "" with your links. -->
       <h4 class="margin-top-2" style="text-align: center;">MY DOCUMENTS (in no particular order)</h4>
       <div class="links-container">
-        <a href="#" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">CV (Curriculum Vitae)</a>
+        <a href="javascript:void(0)" onclick="openPasswordModal('cv')" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">CV (Curriculum Vitae)</a>
         <br>
-        <a href="https://raw.githubusercontent.com/ttuhub/simonpmw/main/public/assets/M%20FORM%204%20CERT.jpg" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">FORM 4 CERT</a>
+        <a href="javascript:void(0)" onclick="openPasswordModal('form4')" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">FORM 4 CERT</a>
         <br>
-        <a href="https://raw.githubusercontent.com/ttuhub/simonpmw/main/public/assets/Wokabi%20Simon%20Kibu%20School%20ID%20front%20and%20back.jpg" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">KIBU Student ID</a>
+        <a href="javascript:void(0)" onclick="openPasswordModal('schoolid')" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">School ID</a>
         <br>
-        <a href="#" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">National ID</a>
+        <a href="javascript:void(0)" onclick="openPasswordModal('nationalid')" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">National ID</a>
         <br>
-        <a href="#" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank"></a>
+        <a href="javascript:void(0)" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank"></a>
       </div>
 
       <!-- Links section 2. Replace the # inside of the "" with your links. -->
       <h4 class="margin-top-2" style="text-align: center;">KIBABII UNIVERSITY</h4>
       <div class="links-container">
-        <a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/techbrv/simonpmw/master/public/assets/KIBABII%20UNIVERSITY%20FEE%20STATEMENT.pdf" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">FEE STATEMENT</a>
+        <a href="javascript:void(0)" onclick="openPasswordModal('feestatement')" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">Fee Statement</a>
         <br>
-        <a href="https://raw.githubusercontent.com/ttuhub/simonpmw/main/public/assets/Wokabi%20Simon%20Kibu%20School%20ID%20front%20and%20back.jpg" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">STUDENT ID</a>
+        <a href="javascript:void(0)" onclick="openPasswordModal('kibuschoolid')" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">School ID</a>
         <br>
-        <a href="https://raw.githubusercontent.com/ttuhub/simonpmw/main/public/assets/kibu%20send%20home%20counseling%20letter.png" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">COUNSELLING LETER</a>
+        <a href="javascript:void(0)" onclick="openPasswordModal('counseling1')" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">Send Home Counseling Letter 1</a>
         <br>
-        <a href="https://raw.githubusercontent.com/ttuhub/simonpmw/main/public/assets/kibu%20send%20home%20counseling%20letter.png" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">COUNSELLING LETER</a>
+        <a href="javascript:void(0)" onclick="openPasswordModal('counseling2')" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">Send Home Counseling Letter 2</a>
         <br>
       </div>
 
       <!-- Links section 3. Replace the # inside of the "" with your links. -->
       <h4 class="margin-top-2" style="text-align: center;">MY BLOG</h4>
       <div class="links-container">
-        <a href="#" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">Hashnode</a>
+        <a href="javascript:void(0)" onclick="openPasswordModal('hashnode')" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">Hashnode</a>
       </div>
 
       <!-- Links section 3. Replace the # inside of the "" with your links. -->
       <h4 class="margin-top-2" style="text-align: center;">MY BUSINESS</h4>
       <div class="links-container">
-        <a href="#" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">Business</a>
+        <a href="javascript:void(0)" onclick="openPasswordModal('business')" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">Business</a>
       </div>
 
       <!-- Bottom section 3 -->
       <div class="bottom margin-top-2 w3-padding w3-round">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
         <span style="vertical-align: 7px;"> 2021 - Jane Doe</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
       </div>
 
     </div>
+
+    <!-- Password Modal -->
+    <div id="passwordModal" class="password-modal">
+      <div class="password-modal-content">
+        <span class="password-modal-close" onclick="closePasswordModal()">&times;</span>
+        <h2>Enter Password</h2>
+        <p>Password: <strong>1235</strong></p>
+        <input type="password" id="passwordInput" class="password-input" placeholder="Enter password">
+        <button class="password-btn" onclick="checkPassword()">Access Document</button>
+      </div>
+    </div>
+
     <script>
       feather.replace()
+
+      // Links mapping with password (1235)
+      const links = {
+        'cv': 'https://raw.githubusercontent.com/ttuhub/simonpmw/main/public/assets/CV.pdf',
+        'form4': 'https://raw.githubusercontent.com/ttuhub/simonpmw/main/public/assets/M%20FORM%204%20CERT.jpg',
+        'schoolid': 'https://raw.githubusercontent.com/ttuhub/simonpmw/main/public/assets/Wokabi%20Simon%20Kibu%20School%20ID%20front%20and%20back.jpg',
+        'nationalid': 'https://raw.githubusercontent.com/ttuhub/simonpmw/main/public/assets/National%20ID.jpg',
+        'feestatement': 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/techbrv/simonpmw/master/public/assets/KIBABII%20UNIVERSITY%20FEE%20STATEMENT.pdf',
+        'kibuschoolid': 'https://raw.githubusercontent.com/ttuhub/simonpmw/main/public/assets/Wokabi%20Simon%20Kibu%20School%20ID%20front%20and%20back.jpg',
+        'counseling1': 'https://raw.githubusercontent.com/ttuhub/simonpmw/main/public/assets/kibu%20send%20home%20counseling%20letter.png',
+        'counseling2': 'https://raw.githubusercontent.com/ttuhub/simonpmw/main/public/assets/kibu%20send%20home%20counseling%20letter.png',
+        'hashnode': 'https://hashnode.com/@yourusername',
+        'business': 'https://yourbusiness.com'
+      };
+
+      let currentLinkKey = '';
+      const PASSWORD = '1235';
+
+      function openPasswordModal(linkKey) {
+        currentLinkKey = linkKey;
+        document.getElementById('passwordModal').style.display = 'block';
+        document.getElementById('passwordInput').value = '';
+        document.getElementById('passwordInput').focus();
+      }
+
+      function closePasswordModal() {
+        document.getElementById('passwordModal').style.display = 'none';
+        currentLinkKey = '';
+      }
+
+      function checkPassword() {
+        const password = document.getElementById('passwordInput').value;
+        if (password === PASSWORD) {
+          const url = links[currentLinkKey];
+          if (url) {
+            window.open(url, '_blank');
+            closePasswordModal();
+          }
+        } else {
+          alert('Incorrect password. Please try again.');
+          document.getElementById('passwordInput').value = '';
+          document.getElementById('passwordInput').focus();
+        }
+      }
+
+      // Allow Enter key to submit password
+      document.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter' && document.getElementById('passwordModal').style.display === 'block') {
+          checkPassword();
+        }
+      });
+
+      // Close modal when clicking outside of it
+      window.onclick = function(event) {
+        const modal = document.getElementById('passwordModal');
+        if (event.target === modal) {
+          closePasswordModal();
+        }
+      }
     </script>
   </body>  
 </html>
